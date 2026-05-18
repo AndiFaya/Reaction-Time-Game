@@ -1,18 +1,53 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Reaction Time Tester Launcher</title>
+    <title>Reaction Time Game</title>
     <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <header class="page-header">
-      <h1>Reaction Time Game</h1>
-      <p>Configure the game, then open the game window.</p>
-    </header>
+</head>
+<body class="launcher-page">
 
-    <main class="container">
+    <!-- 
+         Change 4 (relocated): How-to-Play overlay is now on the launcher page (index.html) so players see it before they reach
+         the settings form. Dismissing it directs them on the settings page where they must enter their name before they can start the game.
+         Previously this overlay appeared inside game.html after the game window had already opened, giving players no chance to configure
+         their session first.
+     -->
+    <div id="howToPlayOverlay" class="overlay" role="dialog" aria-modal="true" aria-labelledby="overlayTitle">
+        <div class="overlay-box">
+            <div class="overlay-header">
+                <h2 id="overlayTitle">How to Play</h2>
+            </div>
+            <ol class="overlay-steps">
+                <li>Enter your <strong>name</strong> and choose your settings on the page below.</li>
+                <li>Click <strong>Start Game</strong> to open the game window.</li>
+                <li>In the game window, click <strong>Start Test</strong> to begin round 1.</li>
+                <li>The signal area will show <strong>WAIT</strong>, do NOT react yet.</li>
+                <li>When it turns <strong>GO!</strong>react immediately.</li>
+                <li>If your mode is <strong>Click</strong>, click the signal area with your <strong>MOUSE</strong>.<br />
+                    If it is <strong>Spacebar</strong>, press the spacebar <strong>KEY</strong>.<br />
+                    If it is <strong>Mixed</strong>,check the <strong>INSTRUCTION BAR</strong> above the signal area each round.</li>
+                <li>Your reaction time appears after each round. The next round starts <strong>automatically</strong>.</li>
+            </ol>
+            <button id="overlayStartBtn" class="btn btn-primary btn-lg btn-block">
+               Back to Settings
+            </button>
+        </div>
+    </div>
+    <!-- End Change 4 overlay -->
+
+    <div class="launcher-container">
+        <header class="launcher-header">
+            <div class="launcher-header-inner">
+                <div>
+                    <h1>Reaction Time Game</h1>
+                    <p class="launcher-subtitle">Configure your session, then start testing your reflexes.</p>
+                </div>
+            </div>
+        </header>
+
+       <main class="container">
       <section class="card">
         <h2 class="heading">Game Setup</h2>
 
@@ -101,7 +136,7 @@
     </main>
 
     <footer class="page-footer">
-      <p>Reaction Time Tester Launcher</p>
+      <p>Reaction Time Game Launcher</p>
     </footer>
 
     <script src="launcher.js"></script>
